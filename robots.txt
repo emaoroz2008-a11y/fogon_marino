@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fogonmarino.com.co/sitemap.xml

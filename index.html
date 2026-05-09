@@ -87,20 +87,22 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome cargado asíncronamente para no bloquear el renderizado -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJCCDNDJ"
+    <noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-KJCCDNDJ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Navbar -->
     <header class="header" id="header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="assets/logo.png" alt="Fogón Marino Logo" class="logo-img">
+                <img src="assets/logo.png" alt="Fogón Marino Logo" class="logo-img" width="240" height="240">
             </a>
             <nav class="nav-links" id="navLinks">
                 <a href="#hero">Inicio</a>
@@ -110,8 +112,11 @@
                 <a href="https://wa.me/573128686751" target="_blank" class="btn-primary-sm" onclick="gtag('event', 'click_whatsapp', {'event_category': 'contacto', 'event_label': 'Navbar'});"><i
                         class="fab fa-whatsapp"></i> Domicilios</a>
             </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"
+                    aria-label="Abrir menú de navegación"
+                    aria-expanded="false"
+                    aria-controls="navLinks">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
         </div>
     </header>
@@ -147,7 +152,7 @@
                 </div>
                 <div class="hero-image-wrapper">
                     <div class="hero-image-bg-glow"></div>
-                    <img src="assets/fondo.jpg" alt="Ceviche de Fogón Marino" class="hero-image">
+                    <img src="assets/fondo.jpg" alt="Ceviche de Fogón Marino" class="hero-image" width="500" height="420">
                 </div>
             </div>
         </section>
@@ -175,7 +180,7 @@
                     <div class="menu-card" data-category="exquisitos">
                         <div class="card-image-wrapper">
                             <img src="assets/Arroz%20con%20camarones.jpg" alt="Arroz con Camarones" class="card-img"
-                                loading="lazy">
+                                loading="lazy" width="400" height="220">
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">Arroz con Camarones</h3>
@@ -189,7 +194,7 @@
                     <!-- Item 2 -->
                     <div class="menu-card" data-category="exquisitos">
                         <div class="card-image-wrapper">
-                            <img src="assets/Extasis.jpeg" alt="Éxtasis" class="card-img" loading="lazy">
+                            <img src="assets/Extasis.jpeg" alt="Éxtasis" class="card-img" loading="lazy" width="400" height="220">
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">Éxtasis</h3>
@@ -203,7 +208,7 @@
                     <div class="menu-card" data-category="exquisitos">
                         <div class="card-image-wrapper">
                             <img src="assets/camarones%20gourmet.jpeg" alt="Camarones Gourmet" class="card-img"
-                                loading="lazy">
+                                loading="lazy" width="400" height="220">
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">Camarones Gourmet</h3>
@@ -217,7 +222,7 @@
                     <div class="menu-card" data-category="entradas">
                         <div class="card-image-wrapper">
                             <img src="assets/fondo.jpg" alt="Ceviche Clásico" class="card-img"
-                                style="object-position: center 20%;" loading="lazy">
+                                style="object-position: center 20%;" loading="lazy" width="400" height="220">
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">Ceviche Clásico</h3>
@@ -230,7 +235,7 @@
                     <!-- Item 5 -->
                     <div class="menu-card" data-category="exquisitos">
                         <div class="card-image-wrapper">
-                            <img src="assets/paella.jpg" alt="Paella Marinera" class="card-img" loading="lazy">
+                            <img src="assets/paella.jpg" alt="Paella Marinera" class="card-img" loading="lazy" width="400" height="220">
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">Paella Marinera</h3>
@@ -254,7 +259,7 @@
             <div class="container">
                 <div class="social-wrapper">
                     <div class="social-image-container">
-                        <img src="assets/reserva.jpeg" alt="Reserva en Fogón Marino" class="social-img" loading="lazy">
+                        <img src="assets/reserva.jpeg" alt="Reserva en Fogón Marino" class="social-img" loading="lazy" width="500" height="400">
                         <div class="social-badge">
                             <i class="fas fa-glass-cheers"></i>
                             <span>¡Reserva Gratis!</span>
@@ -410,6 +415,7 @@
                     </div>
                     <div class="map-container">
                         <iframe
+                            title="Mapa de ubicación de Fogón Marino en Cristo Rey, Manizales"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.914299955403!2d-75.50525792404093!3d5.065484994911855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e476f147478523f%3A0xac42f30aacfb7771!2sFogon%20Marino%20Cristo%20Rey!5e0!3m2!1ses!2s!4v1700000000000!5m2!1ses!2s"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -423,7 +429,7 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-brand">
-                <img src="assets/logo.png" alt="Fogón Marino Logo" class="footer-logo">
+                <img src="assets/logo.png" alt="Fogón Marino Logo" class="footer-logo" width="150" height="150">
                 <p>El auténtico sabor del mar. Frescura y calidad en cada plato que servimos a tu mesa.</p>
             </div>
             <div class="footer-links">
@@ -446,7 +452,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 
 </html>

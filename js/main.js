@@ -17,14 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = navLinks.querySelectorAll('a');
 
     mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        const isOpen = navLinks.classList.toggle('active');
+        // Accesibilidad: actualiza aria-expanded para lectores de pantalla
+        mobileMenuBtn.setAttribute('aria-expanded', isOpen);
         const icon = mobileMenuBtn.querySelector('i');
-        if (navLinks.classList.contains('active')) {
+        if (isOpen) {
             icon.classList.remove('fa-bars');
             icon.classList.add('fa-times');
+            mobileMenuBtn.setAttribute('aria-label', 'Cerrar menú de navegación');
         } else {
             icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
+            mobileMenuBtn.setAttribute('aria-label', 'Abrir menú de navegación');
         }
     });
 

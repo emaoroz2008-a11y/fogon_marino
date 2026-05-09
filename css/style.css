@@ -678,7 +678,7 @@ body {
 }
 
 .review-text {
-    color: var(--text-muted);
+    color: #c8d5e5;
     font-style: italic;
     line-height: 1.6;
 }
@@ -818,7 +818,7 @@ body {
     text-align: center;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.65);
     font-size: 0.9rem;
 }
 
